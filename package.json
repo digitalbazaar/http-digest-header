@@ -1,0 +1,71 @@
+{
+  "name": "http-signature-digest",
+  "version": "0.0.1",
+  "description": "Minimal isomorphic library (Node.js and browser) for creating and verifying Digest headers for HTTP Signatures",
+  "license": "BSD-3-Clause",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "npm run test-node",
+    "test-node": "cross-env NODE_ENV=test mocha -r esm --preserve-symlinks -t 10000 test/**/*.spec.js",
+    "test-karma": "karma start test/karma.conf.js",
+    "lint": "eslint ."
+  },
+  "files": [
+    "lib/"
+  ],
+  "dependencies": {
+    "base64url": "^3.0.1",
+    "esm": "^3.2.25",
+    "isomorphic-webcrypto": "^2.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-digitalbazaar": "^2.0.1",
+    "eslint-plugin-jsdoc": "^18.4.1",
+    "karma": "^4.4.1",
+    "karma-babel-preprocessor": "^8.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^6.2.2",
+    "mocha-lcov-reporter": "^1.3.0",
+    "webpack": "^4.41.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/http-signature-digest"
+  },
+  "keywords": [
+    "http",
+    "signatures",
+    "digest"
+  ],
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "https://digitalbazaar.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/http-signature-digest/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/http-signature-digest",
+  "module": "lib/main.js",
+  "browser": {
+    "./crypto.js": "./crypto-browser.js",
+    "./util.js": "./util-browser.js"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
