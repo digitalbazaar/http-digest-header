@@ -14,9 +14,10 @@
     "lib/"
   ],
   "dependencies": {
-    "base64url": "^3.0.1",
+    "base64url-universal": "^1.1.0",
     "esm": "^3.2.25",
-    "isomorphic-webcrypto": "^2.3.2"
+    "isomorphic-webcrypto": "^2.3.2",
+    "universal-base64": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
