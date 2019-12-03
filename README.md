@@ -51,7 +51,7 @@ const httpDigest = require('http-signature-digest');
 const data = `{"hello": "world"}`;
 
 const result = await httpDigest.
-    createDigestString({data, algorithm: 'sha256', useMultihash: false});
+    create({data, algorithm: 'sha256', useMultihash: false});
 
 // -> SHA-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 ```
