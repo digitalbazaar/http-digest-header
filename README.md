@@ -1,6 +1,6 @@
-# HTTP Digest Header Library _(http-signature-digest)_
+# HTTP Digest Header Library _(@digitalbazaar/http-digest-header)_
 
-[![Build status](https://img.shields.io/travis/digitalbazaar/http-signature-digest.svg)](https://travis-ci.org/digitalbazaar/http-signature-digest)
+[![Build status](https://img.shields.io/travis/digitalbazaar/http-digest-header.svg)](https://travis-ci.org/digitalbazaar/http-digest-header)
 
 > JavaScript library (Node.js and browser) for creating and verifying Digest headers for HTTP Signatures
 
@@ -21,32 +21,32 @@ This is a library specifically for creating and verifying the `Digest:` header,
 for use with HTTP Signatures and similar mechanisms.
 
 This is a standalone separate library from 
-[`http-signature-header`](https://github.com/digitalbazaar/http-signature-header)
+[`http-digest-header`](https://github.com/digitalbazaar/http-digest-header)
 so as not to introduce dependencies on cryptographic libraries to that lib.
 
-It's intended to be isomorphic (for use both in the browser and server-side, with
-Node.js).
+It's intended to be isomorphic (for use both in the browser and server-side, 
+with Node.js).
 
 ## Install
 
 To install from `npm`:
 
 ```
-npm install http-signature-digest
+npm install @digitalbazaar/http-digest-header
 ```
 
 To install locally (for development):
 
 ```
-git clone https://github.com/digitalbazaar/http-signature-digest.git
-cd http-signature-digest
+git clone https://github.com/digitalbazaar/http-digest-header.git
+cd http-digest-header
 npm install
 ```
 
 ## Usage
 
 ```js
-const httpDigest = require('http-signature-digest');
+const httpDigest = require('@digitalbazaar/http-digest-header');
 
 const data = `{"hello": "world"}`;
 
@@ -72,4 +72,4 @@ Digital Bazaar: support@digitalbazaar.com
 
 ## License
 
-[BSD-3-Clause](LICENSE.md) © Digital Bazaar
+[BSD-3-Clause](LICENSE.md) © 2019-2020 Digital Bazaar

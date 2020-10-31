@@ -1,7 +1,7 @@
 /*!
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
-import httpDigest from '../../lib';
+import httpDigest from '../../';
 import chai from 'chai';
 chai.should();
 
