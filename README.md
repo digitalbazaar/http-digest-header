@@ -15,10 +15,13 @@
 
 ## Background
 
-Originally, this library was implemented on the `Digest` header as mentioned in
-**[HTTP Signatures IETF draft](https://tools.ietf.org/html/draft-cavage-http-signatures)**.
+Originally, this library was implemented based on the `Digest` header as 
+mentioned in **[HTTP Signatures IETF draft](https://tools.ietf.org/html/draft-cavage-http-signatures)**.
+
 Since then, the `Digest` header got its own standards-track spec, at
 https://tools.ietf.org/html/draft-ietf-httpbis-digest-headers.
+
+TODO: Update library in accordance with the new digest spec.
 
 This is a library specifically for creating and verifying the `Digest:` header,
 for use with HTTP Signatures and similar mechanisms.
