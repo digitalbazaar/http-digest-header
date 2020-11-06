@@ -11,6 +11,7 @@ module.exports = {
   globals: {
     TextDecoder: true,
     TextEncoder: true,
-    Uint8Array: true
+    Uint8Array: true,
+    should: true
   }
 };
