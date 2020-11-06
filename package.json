@@ -6,7 +6,7 @@
   "main": "lib/main.js",
   "scripts": {
     "test": "npm run test-node",
-    "test-node": "cross-env NODE_ENV=test mocha -r esm --preserve-symlinks -t 10000 test/**/*.spec.js",
+    "test-node": "cross-env NODE_ENV=test mocha -r esm --preserve-symlinks -t 10000 --require test/test-mocha.js test/**/*.spec.js",
     "test-karma": "karma start test/karma.conf.js",
     "lint": "eslint ."
   },
