@@ -1,9 +1,11 @@
 module.exports = {
   root: true,
   extends: [
-    'eslint-config-digitalbazaar'
+    'digitalbazaar',
+    'digitalbazaar/jsdoc',
   ],
   env: {
+    mocha: true,
     node: true
   },
   globals: {
@@ -11,4 +13,4 @@ module.exports = {
     TextEncoder: true,
     Uint8Array: true
   }
-}
+};
