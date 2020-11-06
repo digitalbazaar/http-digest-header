@@ -1,18 +1,18 @@
-module.exports = (config) => {
-  const bundler = process.env.BUNDLER || 'webpack'
-  const frameworks = ['mocha']
-  const files = ['**/*.spec.js']
-  const reporters = ['mocha']
-  const browsers = ['ChromeHeadless']
+module.exports = config => {
+  const bundler = process.env.BUNDLER || 'webpack';
+  const frameworks = ['mocha'];
+  const files = ['**/*.spec.js'];
+  const reporters = ['mocha'];
+  const browsers = ['ChromeHeadless'];
   const client = {
     mocha: {
       timeout: 2000
     }
-  }
+  };
   // main bundle preprocessors
-  const preprocessors = []
-  preprocessors.push(bundler)
-  preprocessors.push('sourcemap')
+  const preprocessors = [];
+  preprocessors.push(bundler);
+  preprocessors.push('sourcemap');
 
   return config.set({
     frameworks,
@@ -36,5 +36,5 @@ module.exports = (config) => {
         setImmediate: false
       }
     }
-  })
-}
+  });
+};
