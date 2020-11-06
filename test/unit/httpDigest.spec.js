@@ -151,5 +151,42 @@ describe('http-signature-digest', () => {
       should.exist(verifyResult);
       verifyResult.verified.should.equal(false);
     });
+    it('should verify false if digest and header are not equal when ' +
+     'header is multihash', async () => {
+      const data = `{"hello": "world"}`;
+      const digest = await httpDigest.create(
+        {data, useMultihash: true}
+      );
+      const dataToVerify = `{"hello": "earth"}`;
+      let verifyResult;
+      let err;
+      try {
+        verifyResult = await httpDigest.verify({
+          data: dataToVerify, header: digest});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(verifyResult);
+      verifyResult.verified.should.equal(false);
+    });
+    it('should verify true if digest and header are equal when ' +
+      'header is multihash', async () => {
+      const data = `{"hello": "world"}`;
+      const digest = await httpDigest.create(
+        {data, useMultihash: true}
+      );
+      let verifyResult;
+      let err;
+      try {
+        verifyResult = await httpDigest.verify({
+          data, header: digest});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(verifyResult);
+      verifyResult.verified.should.equal(true);
+    });
   });
 });
