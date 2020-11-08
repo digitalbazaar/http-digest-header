@@ -151,8 +151,8 @@ describe('http-signature-digest', () => {
       should.exist(verifyResult);
       verifyResult.verified.should.equal(false);
     });
-    it('should verify false if digest and header are not equal when ' +
-     'header is multihash', async () => {
+    it('should verify false if hashedDigestStringValue and headerValue ' +
+     'are not equal when header is multihash', async () => {
       const data = `{"hello": "world"}`;
       const digest = await httpDigest.create(
         {data, useMultihash: true}
@@ -170,8 +170,8 @@ describe('http-signature-digest', () => {
       should.exist(verifyResult);
       verifyResult.verified.should.equal(false);
     });
-    it('should verify true if digest and header are equal when ' +
-      'header is multihash', async () => {
+    it('should verify true if hashedDigestStringValue and headerValue ' +
+      'are equal when header is multihash', async () => {
       const data = `{"hello": "world"}`;
       const digest = await httpDigest.create(
         {data, useMultihash: true}
