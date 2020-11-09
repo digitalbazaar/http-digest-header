@@ -1,7 +1,7 @@
 /*!
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
-import httpDigest from '../../';
+import {createHeaderValue, verifyHeaderValue} from '../../';
 
 describe('http-signature-digest', () => {
   describe('createDigestString', () => {
@@ -10,7 +10,7 @@ describe('http-signature-digest', () => {
       let result;
       let err;
       try {
-        result = await httpDigest.create(
+        result = await createHeaderValue(
           {data, algorithm: 'sha256', useMultihash: false}
         );
       } catch(e) {
@@ -27,8 +27,7 @@ describe('http-signature-digest', () => {
         let result;
         let err;
         try {
-          result = await httpDigest.create(
-            {data, useMultihash: true});
+          result = await createHeaderValue({data, useMultihash: true});
         } catch(e) {
           err = e;
         }
@@ -40,16 +39,17 @@ describe('http-signature-digest', () => {
 
     it('should create a digest of an object', async () => {
       const data = {hello: 'world'};
-      const objDigest = await httpDigest.create(
+      const objDigest = await createHeaderValue(
         {data, algorithm: 'sha256', useMultihash: false}
       );
       let stringDigest;
       let err;
       try {
-        stringDigest = await httpDigest.create({
+        stringDigest = await createHeaderValue({
           data: '{"hello":"world"}',
           algorithm: 'sha256',
-          useMultihash: false});
+          useMultihash: false
+        });
       } catch(e) {
         err = e;
       }
@@ -63,35 +63,33 @@ describe('http-signature-digest', () => {
     it('should create a digest of an object with useMultihash set to true',
       async () => {
         const data = {hello: 'world'};
-        const objDigest = await httpDigest.create(
-          {data, useMultihash: true}
-        );
-        let stringDigest;
+        const headerValue = await createHeaderValue({data, useMultihash: true});
+        let stringHeaderValue;
         let err;
         try {
-          stringDigest = await httpDigest.create(
+          stringHeaderValue = await createHeaderValue(
             {data: '{"hello":"world"}', useMultihash: true}
           );
         } catch(e) {
           err = e;
         }
         should.not.exist(err);
-        should.exist(stringDigest);
-        objDigest.should.equal(stringDigest);
-        objDigest.should
+        should.exist(stringHeaderValue);
+        headerValue.should.equal(stringHeaderValue);
+        headerValue.should
           .equal('mh=uEiCTojlxqRTl6svwqNJRVM2jCcPBxy-7mRTUfGDzy2gViA');
       });
   });
   describe('verifyDigestString', () => {
     it('should verify a digest of a given string', async () => {
       const data = `{"hello": "world"}`;
-      const digest = await httpDigest.create(
+      const headerValue = await createHeaderValue(
         {data, algorithm: 'sha256', useMultihash: false}
       );
       let verifyResult;
       let err;
       try {
-        verifyResult = await httpDigest.verify({data, header: digest});
+        verifyResult = await verifyHeaderValue({data, headerValue});
       } catch(e) {
         err = e;
       }
@@ -101,13 +99,13 @@ describe('http-signature-digest', () => {
     });
     it('should verify a digest of a given object', async () => {
       const data = {hello: 'world'};
-      const digest = await httpDigest.create(
+      const headerValue = await createHeaderValue(
         {data, algorithm: 'sha256', useMultihash: false}
       );
       let verifyResult;
       let err;
       try {
-        verifyResult = await httpDigest.verify({data, header: digest});
+        verifyResult = await verifyHeaderValue({data, headerValue});
       } catch(e) {
         err = e;
       }
@@ -117,15 +115,15 @@ describe('http-signature-digest', () => {
     });
     it('should verify false if verifying bad data object', async () => {
       const data = {hello: 'world'};
-      const digest = await httpDigest.create(
+      const headerValue = await createHeaderValue(
         {data, algorithm: 'sha256', useMultihash: false}
       );
       const dataToVerify = {hello: 'earth'};
       let verifyResult;
       let err;
       try {
-        verifyResult = await httpDigest.verify({
-          data: dataToVerify, header: digest});
+        verifyResult = await verifyHeaderValue({
+          data: dataToVerify, headerValue});
       } catch(e) {
         err = e;
       }
@@ -135,15 +133,15 @@ describe('http-signature-digest', () => {
     });
     it('should verify false if verifying bad data string', async () => {
       const data = `{"hello": "world"}`;
-      const digest = await httpDigest.create(
+      const headerValue = await createHeaderValue(
         {data, algorithm: 'sha256', useMultihash: false}
       );
       const dataToVerify = `{"hello": "earth"}`;
       let verifyResult;
       let err;
       try {
-        verifyResult = await httpDigest.verify({
-          data: dataToVerify, header: digest});
+        verifyResult = await verifyHeaderValue({
+          data: dataToVerify, headerValue});
       } catch(e) {
         err = e;
       }
@@ -154,15 +152,15 @@ describe('http-signature-digest', () => {
     it('should verify false if hashedDigestStringValue and headerValue ' +
      'are not equal when header is multihash', async () => {
       const data = `{"hello": "world"}`;
-      const digest = await httpDigest.create(
+      const headerValue = await createHeaderValue(
         {data, useMultihash: true}
       );
       const dataToVerify = `{"hello": "earth"}`;
       let verifyResult;
       let err;
       try {
-        verifyResult = await httpDigest.verify({
-          data: dataToVerify, header: digest});
+        verifyResult = await verifyHeaderValue({
+          data: dataToVerify, headerValue});
       } catch(e) {
         err = e;
       }
@@ -173,14 +171,13 @@ describe('http-signature-digest', () => {
     it('should verify true if hashedDigestStringValue and headerValue ' +
       'are equal when header is multihash', async () => {
       const data = `{"hello": "world"}`;
-      const digest = await httpDigest.create(
+      const headerValue = await createHeaderValue(
         {data, useMultihash: true}
       );
       let verifyResult;
       let err;
       try {
-        verifyResult = await httpDigest.verify({
-          data, header: digest});
+        verifyResult = await verifyHeaderValue({data, headerValue});
       } catch(e) {
         err = e;
       }
