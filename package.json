@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Minimal isomorphic library (Node.js and browser) for creating and verifying Digest headers for HTTP Signatures",
   "license": "BSD-3-Clause",
-  "main": "lib/main.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "npm run test-node",
     "test-node": "cross-env NODE_ENV=test mocha -r esm --preserve-symlinks -t 10000 --require test/test-mocha.js test/**/*.spec.js",
