@@ -15,7 +15,7 @@
 
 ## Background
 
-Originally, this library was implemented based on the `Digest` header as 
+Originally, this library was implemented based on the `Digest` header as
 mentioned in **[HTTP Signatures IETF draft](https://tools.ietf.org/html/draft-cavage-http-signatures)**.
 
 Since then, the `Digest` header got its own standards-track spec, at
@@ -26,11 +26,11 @@ TODO: Update library in accordance with the new digest spec.
 This is a library specifically for creating and verifying the `Digest:` header,
 for use with HTTP Signatures and similar mechanisms.
 
-This is a standalone separate library from 
+This is a standalone separate library from
 [`http-digest-header`](https://github.com/digitalbazaar/http-digest-header)
 so as not to introduce dependencies on cryptographic libraries to that lib.
 
-It's intended to be isomorphic (for use both in the browser and server-side, 
+It's intended to be isomorphic (for use both in the browser and server-side,
 with Node.js).
 
 ## Install
@@ -56,10 +56,17 @@ const httpDigest = require('@digitalbazaar/http-digest-header');
 
 const data = `{"hello": "world"}`;
 
-const result = await httpDigest.
-    create({data, algorithm: 'sha256', useMultihash: false});
-
+const headerValue = await httpDigest.
+    createHeaderValue({data, algorithm: 'sha256', useMultihash: false});
 // -> SHA-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
+
+const dataToVerify1 = `{"hello": "world"}`;
+const dataToVerify2 = `{"hello": "planet earth"}`;
+
+const verifyResult = await httpDigest.verifyHeaderValue({data: dataToVerify1, headerValue});
+// -> { verified: true }
+const verifyResult = await httpDigest.verifyHeaderValue({data: dataToVerify2, headerValue});
+// -> { verified: false }
 ```
 
 ## Contribute
