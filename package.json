@@ -67,8 +67,7 @@
   "homepage": "https://github.com/digitalbazaar/http-signature-digest",
   "module": "lib/main.js",
   "browser": {
-    "./crypto.js": "./crypto-browser.js",
-    "./util.js": "./util-browser.js"
+    "./lib/crypto.js": "./lib/crypto-browser.js"
   },
   "engines": {
     "node": ">=12"
