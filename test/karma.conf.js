@@ -1,6 +1,6 @@
 module.exports = config => {
   const bundler = process.env.BUNDLER || 'webpack';
-  const frameworks = ['mocha'];
+  const frameworks = ['mocha', 'chai'];
   const files = ['**/*.spec.js'];
   const reporters = ['mocha'];
   const browsers = ['ChromeHeadless'];
@@ -29,12 +29,7 @@ module.exports = config => {
     },
     webpack: {
       devtool: 'inline-source-map',
-      mode: 'development',
-      node: {
-        Buffer: false,
-        crypto: false,
-        setImmediate: false
-      }
+      mode: 'development'
     }
   });
 };
