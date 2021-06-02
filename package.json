@@ -20,7 +20,7 @@
     "base64url-universal": "^1.1.0",
     "esm": "^3.2.25",
     "isomorphic-webcrypto": "^2.3.6",
-    "universal-base64": "^2.1.0"
+    "js-base64": "^3.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
