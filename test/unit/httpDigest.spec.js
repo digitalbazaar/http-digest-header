@@ -1,7 +1,7 @@
 /*!
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
-import {createHeaderValue, verifyHeaderValue} from '../../';
+import {createHeaderValue, verifyHeaderValue} from '../../lib/index.js';
 
 describe('http-signature-digest', () => {
   describe('createDigestString', () => {

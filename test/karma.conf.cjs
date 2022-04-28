@@ -1,18 +1,14 @@
 module.exports = config => {
-  const bundler = process.env.BUNDLER || 'webpack';
-  const frameworks = ['mocha', 'chai'];
-  const files = ['**/*.spec.js'];
-  const reporters = ['mocha'];
   const browsers = ['ChromeHeadless'];
+  const files = ['**/*.spec.js'];
+  const frameworks = ['mocha', 'chai'];
+  const preprocessors = ['webpack', 'sourcemap'];
+  const reporters = ['mocha'];
   const client = {
     mocha: {
       timeout: 2000
     }
   };
-  // main bundle preprocessors
-  const preprocessors = [];
-  preprocessors.push(bundler);
-  preprocessors.push('sourcemap');
 
   return config.set({
     frameworks,
