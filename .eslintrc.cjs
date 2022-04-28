@@ -3,15 +3,9 @@ module.exports = {
   extends: [
     'digitalbazaar',
     'digitalbazaar/jsdoc',
+    'digitalbazaar/module'
   ],
   env: {
-    mocha: true,
     node: true
-  },
-  globals: {
-    TextDecoder: true,
-    TextEncoder: true,
-    Uint8Array: true,
-    should: true
   }
 };

@@ -52,7 +52,7 @@ npm install
 ## Usage
 
 ```js
-const httpDigest = require('@digitalbazaar/http-digest-header');
+import * as httpDigest from '@digitalbazaar/http-digest-header';
 
 const data = `{"hello": "world"}`;
 
@@ -85,4 +85,4 @@ Digital Bazaar: support@digitalbazaar.com
 
 ## License
 
-[BSD-3-Clause](LICENSE.md) © 2019-2020 Digital Bazaar
+[BSD-3-Clause](LICENSE.md) © 2019-2022 Digital Bazaar
