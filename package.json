@@ -12,6 +12,11 @@
     "coverage-report": "c8 report",
     "lint": "eslint ."
   },
+  "type": "module",
+  "exports": "./lib/index.js",
+  "browser": {
+    "./lib/crypto.js": "./lib/crypto-browser.js"
+  },
   "files": [
     "lib/"
   ],
@@ -57,11 +62,6 @@
     "url": "https://github.com/digitalbazaar/http-digest-header/issues"
   },
   "homepage": "https://github.com/digitalbazaar/http-digest-header",
-  "type": "module",
-  "exports": "./lib/index.js",
-  "browser": {
-    "./lib/crypto.js": "./lib/crypto-browser.js"
-  },
   "engines": {
     "node": ">=14"
   }
