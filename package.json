@@ -7,8 +7,8 @@
     "test": "npm run test-node",
     "test-node": "cross-env NODE_ENV=test mocha --preserve-symlinks -t 10000 --require test/test-mocha.js test/**/*.spec.js",
     "test-karma": "karma start test/karma.conf.cjs",
-    "coverage": "cross-env NODE_ENV=test c8 --reporter=lcov --reporter=text-summary npm test",
-    "coverage-ci": "cross-env NODE_ENV=test c8 --reporter=lcovonly --reporter text npm test",
+    "coverage": "cross-env NODE_ENV=test c8 npm test",
+    "coverage-ci": "cross-env NODE_ENV=test c8 --reporter=lcovonly --reporter=text-summary --reporter=text npm test",
     "coverage-report": "c8 report",
     "lint": "eslint ."
   },
@@ -64,5 +64,12 @@
   "homepage": "https://github.com/digitalbazaar/http-digest-header",
   "engines": {
     "node": ">=14"
+  },
+  "c8": {
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "text"
+    ]
   }
 }
