@@ -35,6 +35,10 @@ with Node.js).
 
 ## Install
 
+- Browsers and Node.js 14+ supported.
+- [Web Crypto API][] required. Older browsers and Node.js 14 must use a
+  polyfill.
+
 To install from `npm`:
 
 ```
@@ -86,3 +90,5 @@ Digital Bazaar: support@digitalbazaar.com
 ## License
 
 [BSD-3-Clause](LICENSE.md) © 2019-2022 Digital Bazaar
+
+[Web Crypto API]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API
