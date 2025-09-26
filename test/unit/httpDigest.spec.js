@@ -172,41 +172,40 @@ describe('http-signature-digest', () => {
       verifyResult.verified.should.equal(false);
     });
     it('should verify false if hashedDigestStringValue and headerValue ' +
-      'are not equal when header is multihash', async () => {
-        const data = `{"hello": "world"}`;
-        const headerValue = await createHeaderValue(
-          { data, useMultihash: true }
-        );
-        const dataToVerify = `{"hello": "earth"}`;
-        let verifyResult;
-        let err;
-        try {
-          verifyResult = await verifyHeaderValue({
-            data: dataToVerify, headerValue
-          });
-        } catch (e) {
-          err = e;
-        }
-        should.not.exist(err);
-        should.exist(verifyResult);
-        verifyResult.verified.should.equal(false);
-      });
+     'are not equal when header is multihash', async () => {
+      const data = `{"hello": "world"}`;
+      const headerValue = await createHeaderValue(
+        {data, useMultihash: true}
+      );
+      const dataToVerify = `{"hello": "earth"}`;
+      let verifyResult;
+      let err;
+      try {
+        verifyResult = await verifyHeaderValue({
+          data: dataToVerify, headerValue});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(verifyResult);
+      verifyResult.verified.should.equal(false);
+    });
     it('should verify true if hashedDigestStringValue and headerValue ' +
       'are equal when header is multihash', async () => {
-        const data = `{"hello": "world"}`;
-        const headerValue = await createHeaderValue(
-          { data, useMultihash: true }
-        );
-        let verifyResult;
-        let err;
-        try {
-          verifyResult = await verifyHeaderValue({ data, headerValue });
-        } catch (e) {
-          err = e;
-        }
-        should.not.exist(err);
-        should.exist(verifyResult);
-        verifyResult.verified.should.equal(true);
-      });
+      const data = `{"hello": "world"}`;
+      const headerValue = await createHeaderValue(
+        {data, useMultihash: true}
+      );
+      let verifyResult;
+      let err;
+      try {
+        verifyResult = await verifyHeaderValue({data, headerValue});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(verifyResult);
+      verifyResult.verified.should.equal(true);
+    });
   });
 });
