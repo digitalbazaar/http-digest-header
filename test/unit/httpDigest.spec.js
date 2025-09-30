@@ -80,6 +80,33 @@ describe('http-signature-digest', () => {
         .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
     });
 
+    it('should create a digest of an ArrayBuffer', async () => {
+      const object = { hello: 'world' };
+      const text = JSON.stringify(object)
+      const bytes = new TextEncoder().encode(text)
+      const data = bytes.buffer
+      should.equal(data instanceof ArrayBuffer, true, `data is a ArrayBuffer`)
+      should.equal(data instanceof Uint8Array, false, `data is not a Uint8Array`)
+      const objDigest = await createHeaderValue(
+        { data, algorithm: 'sha256', useMultihash: false }
+      );
+      objDigest.should
+        .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
+    });
+
+    it('should create a digest of a Uint8Array', async () => {
+      const object = { hello: 'world' };
+      const text = JSON.stringify(object)
+      const bytes = new TextEncoder().encode(text)
+      const data = bytes
+      should.equal(data instanceof Uint8Array, true, `data is a Uint8Array`)
+      const objDigest = await createHeaderValue(
+        { data, algorithm: 'sha256', useMultihash: false }
+      );
+      objDigest.should
+        .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
+    });
+
     it('should create a digest of an object with useMultihash set to true',
       async () => {
         const data = {hello: 'world'};
