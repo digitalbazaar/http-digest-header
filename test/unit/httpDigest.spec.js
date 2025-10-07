@@ -143,6 +143,21 @@ describe('http-signature-digest', () => {
       should.exist(verifyResult);
       verifyResult.verified.should.equal(true);
     });
+    it('should verify a digest wrapped in colons', async () => {
+      const data = `{"hello": "world"}`;
+      const headerValue =
+        `sha-256=:X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=:`;
+      let verifyResult;
+      let err;
+      try {
+        verifyResult = await verifyHeaderValue({data, headerValue});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(verifyResult);
+      verifyResult.verified.should.equal(true);
+    });
     it('should verify false if verifying bad data object', async () => {
       const data = {hello: 'world'};
       const headerValue = await createHeaderValue(
