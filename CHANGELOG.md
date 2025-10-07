@@ -6,6 +6,10 @@
 - Support passing `Blob` or `Uint8Array` as the request/response body `data`
   parameter when creating or verifying a header value.
 
+### Changed
+- Recommend node>=20 instead of node>=14.
+- Remove now obsolete webcrypto platform differentiation/browser alias code.
+
 ## 2.0.0 - 2022-06-06
 
 ### Changed
