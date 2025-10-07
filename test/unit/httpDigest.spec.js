@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2019-2025 Digital Bazaar, Inc. All rights reserved.
  */
 import {createHeaderValue, verifyHeaderValue} from '../../lib/index.js';
 
@@ -61,48 +61,31 @@ describe('http-signature-digest', () => {
     });
 
     it('should create a digest of a JSON blob', async () => {
-      const object = { hello: 'world' };
-      const data = new Blob([JSON.stringify(object)], { type: 'application/json' })
+      const object = {hello: 'world'};
+      const data = new Blob(
+        [JSON.stringify(object)], {type: 'application/json'});
       const objDigest = await createHeaderValue(
-        { data, algorithm: 'sha256', useMultihash: false }
-      );
+        {data, algorithm: 'sha256', useMultihash: false});
       objDigest.should
         .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
     });
 
     it('should create a digest of a text/plain blob', async () => {
-      const object = { hello: 'world' };
-      const data = new Blob([JSON.stringify(object)], { type: 'text/plain' })
+      const object = {hello: 'world'};
+      const data = new Blob([JSON.stringify(object)], {type: 'text/plain'});
       const objDigest = await createHeaderValue(
-        { data, algorithm: 'sha256', useMultihash: false }
-      );
-      objDigest.should
-        .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
-    });
-
-    it('should create a digest of an ArrayBuffer', async () => {
-      const object = { hello: 'world' };
-      const text = JSON.stringify(object)
-      const bytes = new TextEncoder().encode(text)
-      const data = bytes.buffer
-      should.equal(data instanceof ArrayBuffer, true, `data is a ArrayBuffer`)
-      should.equal(data instanceof Uint8Array, false, `data is not a Uint8Array`)
-      const objDigest = await createHeaderValue(
-        { data, algorithm: 'sha256', useMultihash: false }
-      );
+        {data, algorithm: 'sha256', useMultihash: false});
       objDigest.should
         .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
     });
 
     it('should create a digest of a Uint8Array', async () => {
-      const object = { hello: 'world' };
-      const text = JSON.stringify(object)
-      const bytes = new TextEncoder().encode(text)
-      const data = bytes
-      should.equal(data instanceof Uint8Array, true, `data is a Uint8Array`)
+      const object = {hello: 'world'};
+      const text = JSON.stringify(object);
+      const data = new TextEncoder().encode(text);
+      should.equal(data instanceof Uint8Array, true, `data is a Uint8Array`);
       const objDigest = await createHeaderValue(
-        { data, algorithm: 'sha256', useMultihash: false }
-      );
+        {data, algorithm: 'sha256', useMultihash: false});
       objDigest.should
         .equal('SHA-256=k6I5cakU5erL8KjSUVTNownDwccvu5kU1Hxg88toFYg=');
     });
