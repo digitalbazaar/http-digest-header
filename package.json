@@ -14,9 +14,6 @@
   },
   "type": "module",
   "exports": "./lib/index.js",
-  "browser": {
-    "./lib/crypto.js": "./lib/crypto-browser.js"
-  },
   "files": [
     "lib/**/*.js"
   ],
