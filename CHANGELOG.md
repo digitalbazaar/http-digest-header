@@ -1,5 +1,11 @@
 # @digitalbazaar/http-digest-header Changelog
 
+## 2.1.0 - 2025-mm-dd
+
+### Added
+- Support passing `Blob` or `Uint8Array` as the request/response body `data`
+  parameter when creating or verifying a header value.
+
 ## 2.0.0 - 2022-06-06
 
 ### Changed
