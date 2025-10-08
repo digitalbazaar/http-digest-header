@@ -1,6 +1,6 @@
 # @digitalbazaar/http-digest-header Changelog
 
-## 2.2.0 - 2025-10-dd
+## 2.2.0 - 2025-10-08
 
 ### Changed
 - Eliminate dependencies in favor of native platform support for simple
