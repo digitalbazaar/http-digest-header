@@ -1,6 +1,6 @@
 {
   "name": "@digitalbazaar/http-digest-header",
-  "version": "2.2.1",
+  "version": "2.2.2-0",
   "description": "Minimal isomorphic library (Node.js and browser) for creating and verifying Digest headers for HTTP Signatures",
   "license": "BSD-3-Clause",
   "scripts": {
