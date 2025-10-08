@@ -1,6 +1,6 @@
 # @digitalbazaar/http-digest-header Changelog
 
-## 2.2.1 - 2025-10-dd
+## 2.2.1 - 2025-10-08
 
 ### Fixed
 - Prevent making an unnecessary copy when encoding bytes.
