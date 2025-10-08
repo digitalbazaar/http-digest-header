@@ -6,7 +6,7 @@
 - Eliminate dependencies in favor of native platform support for simple
   (and rarely used) polyfill fallbacks which may be removed in future
   versions. Dependencies removed:
-  - `@digitalbazaar/base64url-universal`
+  - `base64url-universal`
   - `js-base64`.
 
 ## 2.1.0 - 2025-10-07
