@@ -35,7 +35,7 @@ with Node.js).
 
 ## Install
 
-- Browsers and Node.js 14+ supported.
+- Browsers and Node.js 22+ supported.
 - [Web Crypto API][] required. Older browsers and Node.js 14 must use a
   polyfill.
 
