@@ -1,6 +1,6 @@
 # @digitalbazaar/http-digest-header Changelog
 
-## 2.3.0 - 2025-10-dd
+## 2.3.0 - 2025-10-09
 
 ### Added
 - Support parsing a digest from structured field value, i.e., expressed as
