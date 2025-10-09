@@ -1,5 +1,12 @@
 # @digitalbazaar/http-digest-header Changelog
 
+## 2.3.0 - 2025-10-dd
+
+### Added
+- Support parsing a digest from structured field value, i.e., expressed as
+  a base64-encoded byte array that is wrapped in colons;
+  see: https://datatracker.ietf.org/doc/html/rfc9651#name-byte-sequences.
+
 ## 2.2.1 - 2025-10-08
 
 ### Fixed
