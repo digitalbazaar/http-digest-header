@@ -83,6 +83,6 @@ Digital Bazaar: support@digitalbazaar.com
 
 ## License
 
-[BSD-3-Clause](LICENSE.md) © 2019-2022 Digital Bazaar
+[BSD-3-Clause](LICENSE.md) © 2019-2025 Digital Bazaar
 
 [Web Crypto API]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API
