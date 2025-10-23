@@ -21,14 +21,8 @@ mentioned in **[HTTP Signatures IETF draft](https://tools.ietf.org/html/draft-ca
 Since then, the `Digest` header got its own standards-track spec, at
 https://tools.ietf.org/html/draft-ietf-httpbis-digest-headers.
 
-TODO: Update library in accordance with the new digest spec.
-
 This is a library specifically for creating and verifying the `Digest:` header,
 for use with HTTP Signatures and similar mechanisms.
-
-This is a standalone separate library from
-[`http-digest-header`](https://github.com/digitalbazaar/http-digest-header)
-so as not to introduce dependencies on cryptographic libraries to that lib.
 
 It's intended to be isomorphic (for use both in the browser and server-side,
 with Node.js).
