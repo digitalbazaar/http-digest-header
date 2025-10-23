@@ -1,6 +1,6 @@
 # HTTP Digest Header Library _(@digitalbazaar/http-digest-header)_
 
-[![Build status](https://img.shields.io/travis/digitalbazaar/http-digest-header.svg)](https://travis-ci.org/digitalbazaar/http-digest-header)
+[![Node.js CI](https://github.com/digitalbazaar/http-digest-header/actions/workflows/main.yml/badge.svg)](https://github.com/digitalbazaar/http-digest-header/actions/workflows/main.yml)
 
 > JavaScript library (Node.js and browser) for creating and verifying Digest headers for HTTP Signatures
 
